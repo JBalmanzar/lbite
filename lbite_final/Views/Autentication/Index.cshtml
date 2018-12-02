@@ -1,8 +1,42 @@
-
-
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout"; 
 }
 
-<h2>title</h2>
+<h1>Login</h1>
+
+@using (Html.BeginForm("Login", "Autentication", FormMethod.Post))
+{
+     if (ViewBag.Error != null)
+     {
+         <div class="panel panel-body panel-danger">
+             @ViewBag.Error
+         </div>
+     }
+    
+    <div >
+        <label>Usuario</label>
+        <input type="text" class="form-control" name="user" placeholder="prueba" >
+        @if (ViewBag.ErrorUsuario != null)
+        {
+            <div class="panel panel-body panel-danger">
+                @ViewBag.ErrorUsuario
+            </div>
+        }
+    </div>
+
+
+    <div>
+        <label>Contraseña</label>
+        <input type="password" class="form-control" name="password" placeholder="*****"/>
+        @if (ViewBag.ErrorPassword != null)
+        {
+            <div class="panel panel-body panel-danger">
+                @ViewBag.ErrorPassword
+            </div>
+        }
+    </div>
+    
+        
+    <button type="submit" class="btn btn-default">Acceder</button>
+}
+    
+    
